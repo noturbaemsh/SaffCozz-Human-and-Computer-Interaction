@@ -592,3 +592,9 @@ nav ul li {
     background: #616161;
     color: white;
 }
+
+nav ul li a.active {
+    text-decoration: underline;
+    text-underline-offset: 5px; /* Adjusts the space between text and underline */
+    font-weight: bold; /* Optional: makes the text bold */
+}

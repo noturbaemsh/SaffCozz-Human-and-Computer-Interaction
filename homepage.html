@@ -20,14 +20,17 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="./assets/company's/SaffCozz_Company.png" width="125px">
+                    <a href="./homepage.html">
+                        <img src="./assets/company's/SaffCozz_Company.png" width="125px">
+                    </a>
+                    
                 </div>
                 <nav>
                     <ul id="menu-item">
                         <li><a href="./src/products page/products.html">PRODUK</a></li>
-                        <li><a href="">TENTANG KAMI</a></li>
-                        <li><a href="">LOKASI TOKO</a></li>
-                        <li><a href="">HUBUNGI KAMI</a></li>
+                        <li><a href="./src/about us/about.html">TENTANG KAMI</a></li>
+                        <li><a href="./src/store locations/stores.html">LOKASI TOKO</a></li>
+                        <li><a href="./src/contact us/contact.html">HUBUNGI KAMI</a></li>
                     </ul>
                 </nav>
                 <img src="./assets/nav/nav_hamburger.svg" alt="" class="menu-icon" onclick="menuToggle()">
@@ -44,7 +47,7 @@
                 <div class="col-2">
                     <h1>TEMUKAN MAHAKARYA <br>TERBARU DARI KAMI</h1>    
                     <p>Jelajahi kreasi terbaru SaffCoz, yang dibuat dengan bahan baku yang sangat indah untuk menghasilkan aroma mewah yang tak terlupakan.</p>
-                    <a href="" class="btn">JELAJAHI SEKARANG</a>
+                    <a href="#new-products" class="btn">JELAJAHI SEKARANG</a>
                 </div>
                 <div class="col-2">
                     <img src="./assets/homepage/banner/banner-1.jpeg" alt="new product">
@@ -56,7 +59,7 @@
                 <div class="col-2">
                     <h1>DISKON SPESIAL <br>HINGGA 30%</h1>    
                     <p>Dapatkan koleksi parfum mewah SaffCoz dengan penawaran khusus untuk waktu terbatas.</p>
-                    <a href="" class="btn">LIHAT PENAWARAN</a>
+                    <a href="#discounted" class="btn">LIHAT PENAWARAN</a>
                 </div>
                 <div class="col-2">
                     <img src="./assets/homepage/banner/banner-2.jpg" alt="discount">
@@ -64,8 +67,12 @@
             </div>
     
             <!-- Navigation buttons -->
-            <button class="slider-nav prev-btn">&lt;</button>
-            <button class="slider-nav next-btn">&gt;</button>
+            <div class="slider-nav prev-btn">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
         </div>
     </section>
 
@@ -130,8 +137,76 @@
                     <a href="#" class="product-btn">BELI SEKARANG</a>
                 </div>
             </div> 
-            <button class="slider-nav prev-btn product-prev">&lt;</button>
-            <button class="slider-nav next-btn product-next">&gt;</button>
+            <!-- <button class="slider-nav prev-btn product-prev">&lt;</button>
+            <button class="slider-nav next-btn product-next">&gt;</button> -->
+
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
+        </div>
+    </div>
+
+    <div class="small-container" id="new-products">
+        <h2 class="title">PRODUK TERBARU</h2>
+        <div class="product-slider">
+            <div class="row">
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 14 - Abu Elegan.svg" alt="">
+                    <h5>EAU DE TOILETTER</h5>
+                    <h4>ESSENCE OF SIMPLE</h4>
+                    <p>Parfum ini menawarkan keharuman yang bersih dan menenangkan, sempurna untuk mereka yang menghargai kesederhanaan.</p>
+                    <small>80ml</small>
+                    <p><small>Baru Diluncurkan</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                <!-- Add 3 more products with similar structure -->
+            </div>
+            
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Discounted Products Section -->
+    <div class="small-container" id="discounted">
+        <h2 class="title">SEDANG DISKON</h2>
+        <div class="product-slider">
+            <div class="row">
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 10 - Emas nan Elegan.svg" alt="">
+                    <h5>EAU DE PARFUM</h5>
+                    <h4>GOLD EXCLUSIVE</h4>
+                    <p>Kombinasi sempurna dari bunga melati yang lembut, sentuhan vanila yang manis, dan kehangatan kayu cendana menciptakan kesan yang tak terlupakan.</p>
+                    <small>75ml</small>
+                    <p><small>Diskon 30%</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 9 - Aroma Buah-buahan Manis dan Eksotis.svg" alt="">
+                    <h5>EXTRAIT DE PARFUM</h5>
+                    <h4>FRUITY EXORCISM</h4>
+                    <p>Kombinasi unik dari berbagai buah eksotis ini memberikan sentuhan yang menyegarkan dan memikat, sempurna untuk mereka yang ingin tampil beda dan berani.</p>
+                    <small>40ml</small>
+                    <p><small>Diskon 30%</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                
+                
+                <!-- Add 3 more products with similar structure -->
+            </div>
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
         </div>
     </div>
 

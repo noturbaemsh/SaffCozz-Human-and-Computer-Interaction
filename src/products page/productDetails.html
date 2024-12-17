@@ -13,14 +13,16 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="../../assets/company's/SaffCozz_Company.png" width="125px">
+                    <a href="../../homepage.html">
+                        <img src="../../assets/company's/SaffCozz_Company.png" width="125px">
+                    </a>
                 </div>
                 <nav>
                     <ul id="menu-item">
-                        <li><a href="">PRODUK</a></li>
-                        <li><a href="">TENTANG KAMI</a></li>
-                        <li><a href="">LOKASI TOKO</a></li>
-                        <li><a href="">HUBUNGI KAMI</a></li>
+                        <li><a href="../../src/products page/products.html" class="active">PRODUK</a></li>
+                        <li><a href="../../src/about us/about.html">TENTANG KAMI</a></li>
+                        <li><a href="../../src/store locations/stores.html">LOKASI TOKO</a></li>
+                        <li><a href="../../src/contact us/contact.html">HUBUNGI KAMI</a></li>
                     </ul>
                 </nav>
                 <img src="../../assets/nav/nav_hamburger.svg" alt="" class="menu-icon" onclick="menuToggle()">
@@ -35,7 +37,11 @@
         </div>
         <div class="product-info">
             <h2 id="product-name"></h2>
-            <p id="product-price" class="price"></p>
+            <!-- <p id="product-price" class="price"></p> -->
+            <div class="price-row">
+                <span id="original-price" class="original-price"></span>
+                <span id="product-price" class="price"></span>
+            </div>
             <button class="buy-button">Beli Sekarang</button>
             
             <div class="info-section">

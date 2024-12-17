@@ -1,3 +1,37 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Target the specific container
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .small-container .product-container .row .col-3 {
+            display: flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Get products from the specific row
+    const products = document.querySelector('.small-container .product-container .row').querySelectorAll('.col-3');
+    console.log(`Total products found: ${products.length}`);
+    
+    products.forEach((product, index) => {
+        const name = product.querySelector('h4').textContent.trim();
+        const priceSpan = product.querySelector('.price');
+        
+        const data = productDetails[name];
+        if (data) {
+            if (data.discountPrice) {
+                priceSpan.innerHTML = `<del>${data.originalPrice}</del> ${data.discountPrice}`;
+                console.log(`✓ Updated ${name} with discount: ${data.originalPrice} → ${data.discountPrice}`);
+            } else {
+                priceSpan.textContent = data.originalPrice;
+                console.log(`✓ Updated ${name} price: ${data.originalPrice}`);
+            }
+        }
+    });
+});
+
+
 var menuItems = document.getElementById("menu-item");
         menuItems.style.maxHeight = "0px";
         function menuToggle()
@@ -480,53 +514,53 @@ var menuItems = document.getElementById("menu-item");
         // Store the original order of products
         const originalOrder = [...allProducts];
     
-        function sortAllProducts(sortValue) {
-            // Create a new array with all products
-            let sortedProducts = [...allProducts];
+        // function sortAllProducts(sortValue) {
+        //     // Create a new array with all products
+        //     let sortedProducts = [...allProducts];
             
-            switch(sortValue) {
-                case 'name-asc':
-                    sortedProducts.sort((a, b) => {
-                        return a.querySelector('h4').textContent.localeCompare(b.querySelector('h4').textContent);
-                    });
-                    break;
-                case 'name-desc':
-                    sortedProducts.sort((a, b) => {
-                        return b.querySelector('h4').textContent.localeCompare(a.querySelector('h4').textContent);
-                    });
-                    break;
-                case 'price-low':
-                    sortedProducts.sort((a, b) => {
-                        const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-                        const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-                        return priceA - priceB;
-                    });
-                    break;
-                case 'price-high':
-                    sortedProducts.sort((a, b) => {
-                        const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-                        const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-                        return priceB - priceA;
-                    });
-                    break;
-                case 'type':
-                    sortedProducts.sort((a, b) => {
-                        return a.querySelector('h5').textContent.localeCompare(b.querySelector('h5').textContent);
-                    });
-                    break;
-                case 'default':
-                    sortedProducts = [...originalOrder];
-                    break;
-            }
+        //     switch(sortValue) {
+        //         case 'name-asc':
+        //             sortedProducts.sort((a, b) => {
+        //                 return a.querySelector('h4').textContent.localeCompare(b.querySelector('h4').textContent);
+        //             });
+        //             break;
+        //         case 'name-desc':
+        //             sortedProducts.sort((a, b) => {
+        //                 return b.querySelector('h4').textContent.localeCompare(a.querySelector('h4').textContent);
+        //             });
+        //             break;
+        //         case 'price-low':
+        //             sortedProducts.sort((a, b) => {
+        //                 const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
+        //                 const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
+        //                 return priceA - priceB;
+        //             });
+        //             break;
+        //         case 'price-high':
+        //             sortedProducts.sort((a, b) => {
+        //                 const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
+        //                 const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
+        //                 return priceB - priceA;
+        //             });
+        //             break;
+        //         case 'type':
+        //             sortedProducts.sort((a, b) => {
+        //                 return a.querySelector('h5').textContent.localeCompare(b.querySelector('h5').textContent);
+        //             });
+        //             break;
+        //         case 'default':
+        //             sortedProducts = [...originalOrder];
+        //             break;
+        //     }
     
-            // Update the main products array with sorted order
-            allProducts = sortedProducts;
+        //     // Update the main products array with sorted order
+        //     allProducts = sortedProducts;
             
-            // Reset to first page and display
-            currentPage = 1;
-            updatePageDisplay();
-            showProducts();
-        }
+        //     // Reset to first page and display
+        //     currentPage = 1;
+        //     updatePageDisplay();
+        //     showProducts();
+        // }
     
         function showProducts() {
             const start = (currentPage - 1) * productsPerPage;
@@ -546,6 +580,58 @@ var menuItems = document.getElementById("menu-item");
             pageNumbers.forEach((btn, index) => {
                 btn.classList.toggle('active', index + 1 === currentPage);
             });
+        }
+
+        function sortAllProducts(sortValue) {
+            let sortedProducts = [...allProducts];
+            
+            switch(sortValue) {
+                case 'price-low':
+                case 'price-high':
+                    sortedProducts.sort((a, b) => {
+                        // Get product names
+                        const nameA = a.querySelector('h4').textContent.trim();
+                        const nameB = b.querySelector('h4').textContent.trim();
+                        
+                        // Get price data from productDetails
+                        const productA = productDetails[nameA];
+                        const productB = productDetails[nameB];
+                        
+                        // Get actual prices (use discounted price if available)
+                        const priceA = parseInt(productA.discountPrice?.replace(/[^\d]/g, '') || 
+                                             productA.originalPrice.replace(/[^\d]/g, ''));
+                        const priceB = parseInt(productB.discountPrice?.replace(/[^\d]/g, '') || 
+                                             productB.originalPrice.replace(/[^\d]/g, ''));
+                        
+                        return sortValue === 'price-low' ? priceA - priceB : priceB - priceA;
+                    });
+                    break;
+                    
+                // Rest of the cases remain the same
+                case 'name-asc':
+                    sortedProducts.sort((a, b) => {
+                        return a.querySelector('h4').textContent.localeCompare(b.querySelector('h4').textContent);
+                    });
+                    break;
+                case 'name-desc':
+                    sortedProducts.sort((a, b) => {
+                        return b.querySelector('h4').textContent.localeCompare(a.querySelector('h4').textContent);
+                    });
+                    break;
+                case 'type':
+                    sortedProducts.sort((a, b) => {
+                        return a.querySelector('h5').textContent.localeCompare(b.querySelector('h5').textContent);
+                    });
+                    break;
+                case 'default':
+                    sortedProducts = [...originalOrder];
+                    break;
+            }
+        
+            allProducts = sortedProducts;
+            currentPage = 1;
+            updatePageDisplay();
+            showProducts();
         }
     
         // Event Listeners
@@ -590,6 +676,42 @@ var menuItems = document.getElementById("menu-item");
         // Initial display
         showProducts();
     });
+
+    // Add this after your sorting and pagination code
+function initializeProductClicks() {
+    document.querySelectorAll('.col-3').forEach(product => {
+        product.addEventListener('click', () => {
+            const productName = product.querySelector('h4').textContent.trim();
+            const productData = {
+                name: productName,
+                image: product.querySelector('img').src,
+                ...productDetails[productName]
+            };
+            
+            localStorage.setItem('selectedProduct', JSON.stringify(productData));
+            window.location.href = '../../src/products page/productDetails.html';
+        });
+    });
+}
+
+// Update the showProducts function to reinitialize clicks after displaying products
+function showProducts() {
+    const start = (currentPage - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    
+    const container = document.querySelector('.row');
+    container.innerHTML = '';
+    
+    allProducts.slice(start, end).forEach(product => {
+        container.appendChild(product);
+    });
+
+    // Add this line to reinitialize clicks after showing products
+    initializeProductClicks();
+}
+
+// Initialize clicks on page load
+initializeProductClicks();
     
 
     // document.querySelectorAll('.col-3').forEach(product => {
@@ -613,24 +735,25 @@ var menuItems = document.getElementById("menu-item");
 
 
     // First, in products.js, add click event to products
-document.querySelectorAll('.col-3').forEach(product => {
-    product.addEventListener('click', () => {
-        const productName = product.querySelector('h4').textContent;
-        const productData = {
-            name: productName,
-            image: product.querySelector('img').src,
-            ...productDetails[productName] // This spreads the longDesc and details
-        };
+// document.querySelectorAll('.col-3').forEach(product => {
+//     product.addEventListener('click', () => {
+//         const productName = product.querySelector('h4').textContent;
+//         const productData = {
+//             name: productName,
+//             image: product.querySelector('img').src,
+//             ...productDetails[productName] // This spreads the longDesc and details
+//         };
         
-        localStorage.setItem('selectedProduct', JSON.stringify(productData));
-        window.location.href = 'product-detail.html';
-    });
-});
+//         localStorage.setItem('selectedProduct', JSON.stringify(productData));
+//         window.location.href = 'product-detail.html';
+//     });
+// });
 
 
 
 const productDetails = {
     'BLOSSOM ELEGANCE': {
+        originalPrice: "Rp450.000",
         longDesc: "Blossom Elegance menghadirkan perpaduan sempurna antara kelopak mawar segar, melati putih, dan sentuhan lembut freesia. Lapisan tengah mengungkapkan aroma peony dan lily of the valley, sementara base note vanilla dan musk memberikan kehangatan yang tahan lama. Cocok untuk acara formal maupun casual di siang hari.",
         details: {
             scent: ["Floral rose gourmand"],
@@ -652,6 +775,7 @@ const productDetails = {
         }
     },
     'GOLDEN ESSENCE': {
+        originalPrice: "Rp680.000",
         longDesc: "Golden Essence menghadirkan kemewahan dalam setiap semprotan, dengan aroma yang memikat dari jasmine lembut, amber hangat, dan sentuhan sandalwood yang elegan. Aroma ini menciptakan kesan yang abadi dan memikat, cocok untuk mereka yang ingin tampil berkelas sepanjang hari.",
         details: {
             scent: ["Floral woody oriental"],
@@ -660,6 +784,7 @@ const productDetails = {
         }
     },
     'MYSTIC AURA': {
+        originalPrice: "Rp520.000",
         longDesc: "Mystic Aura membawa keharuman yang misterius dan memikat, dengan perpaduan aroma oud yang dalam, vanilla bourbon yang hangat, dan sentuhan mawar hitam. Cocok untuk malam yang istimewa dan memberikan aura yang tak terlupakan.",
         details: {
             scent: ["Oriental floral"],
@@ -668,6 +793,7 @@ const productDetails = {
         }
     },
     'WARM & COZY': {
+        originalPrice: "Rp580.000",
         longDesc: "Warm & Cozy menawarkan keharuman yang memeluk, dengan perpaduan sempurna antara vanilla yang manis, cinnamon yang hangat, dan sedikit sentuhan tonka bean. Parfum ini cocok untuk momen santai di musim dingin.",
         details: {
             scent: ["Gourmand spicy"],
@@ -676,6 +802,7 @@ const productDetails = {
         }
     },
     'CITRUS BLISS': {
+        originalPrice: "Rp420.000",
         longDesc: "Citrus Bliss menyegarkan dengan ledakan aroma jeruk mandarin, grapefruit, dan lemon yang ceria, dipadukan dengan sedikit sentuhan mint. Aroma ini memberikan semangat dan energi sepanjang hari.",
         details: {
             scent: ["Citrus aromatic"],
@@ -684,6 +811,7 @@ const productDetails = {
         }
     },
     'VELVET ROSE': {
+        originalPrice: "Rp850.000",
         longDesc: "Velvet Rose memberikan kesan mewah dengan kombinasi kelopak mawar Damask, vanilla hitam yang manis, dan musk putih. Aroma sensual ini sempurna untuk malam romantis.",
         details: {
             scent: ["Floral oriental"],
@@ -692,6 +820,7 @@ const productDetails = {
         }
     },
     'HERBIFY SENSE': {
+        originalPrice: "Rp550.000",
         longDesc: "Herbify Sense menyatukan keharuman herbal dengan ekstrak kayu manis yang memberikan sensasi relaksasi namun tetap berkarakter. Cocok untuk mereka yang menyukai aroma alami dan santai.",
         details: {
             scent: ["Herbal spicy"],
@@ -700,6 +829,7 @@ const productDetails = {
         }
     },
     'AQUA SERENITY': {
+        originalPrice: "Rp480.000",
         longDesc: "Aqua Serenity memancarkan kesegaran air dengan perpaduan aroma lotus biru, melon segar, dan cedarwood yang memberikan ketenangan. Cocok untuk aktivitas di luar ruangan.",
         details: {
             scent: ["Aquatic fresh"],
@@ -708,6 +838,8 @@ const productDetails = {
         }
     },
     'FRUITY EXORCISM': {
+        originalPrice: "Rp780.000",
+        discountPrice: "Rp546.000",
         longDesc: "Fruity Exorcism menawarkan ledakan aroma buah eksotis seperti mangga, markisa, dan nanas, dipadukan dengan sentuhan musk lembut. Aroma ini berani dan unik, cocok untuk mereka yang ingin tampil beda.",
         details: {
             scent: ["Fruity exotic"],
@@ -715,7 +847,9 @@ const productDetails = {
             size: ["40ml/1.35 oz"]
         }
     },
-    'GOLD\'S EXCLUSIVE': {
+    'GOLD EXCLUSIVE': {
+        originalPrice: "Rp650.000",
+        discountPrice: "Rp455.000",
         longDesc: "Gold's Exclusive menghadirkan kemewahan dengan aroma melati yang lembut, vanila yang manis, dan kayu cendana yang hangat. Aroma ini menciptakan kesan eksklusif yang tak terlupakan.",
         details: {
             scent: ["Floral woody"],
@@ -724,6 +858,7 @@ const productDetails = {
         }
     },
     'LOVELY ROSES': {
+        originalPrice: "Rp820.000",
         longDesc: "Lovely Roses adalah keharuman romantis dengan kombinasi mawar merah yang segar, bunga melati yang lembut, dan kehangatan musk. Aroma ini sempurna untuk momen spesial.",
         details: {
             scent: ["Floral romantic"],
@@ -732,6 +867,7 @@ const productDetails = {
         }
     },
     'ROYAL IRIS': {
+        originalPrice: "Rp590.000",
         longDesc: "Royal Iris menghadirkan kemewahan dengan aroma bunga iris yang elegan, violet yang lembut, dan kehangatan amber. Aroma ini memancarkan keanggunan sejati.",
         details: {
             scent: ["Floral powdery"],
@@ -740,6 +876,7 @@ const productDetails = {
         }
     },
     'SAFFRON NOIR': {
+        originalPrice: "Rp750.000",
         longDesc: "Saffron Noir adalah parfum yang memikat dengan aroma saffron yang kaya, blackberry yang manis, dan leather yang kuat, ditutup dengan sentuhan vanilla bourbon.",
         details: {
             scent: ["Oriental spicy"],
@@ -748,6 +885,7 @@ const productDetails = {
         }
     },
     'ESSENCE OF SIMPLE': {
+        originalPrice: "Rp380.000",
         longDesc: "Essence of Simple menawarkan keharuman yang bersih dan menenangkan dengan aroma lily putih, musk lembut, dan sentuhan citrus. Parfum ini cocok untuk mereka yang menghargai kesederhanaan.",
         details: {
             scent: ["Fresh clean"],
@@ -758,25 +896,4 @@ const productDetails = {
 };
 
 
-// Add click event to each product
-document.querySelectorAll('.col-3').forEach(product => {
-    product.addEventListener('click', () => {
-        const productName = product.querySelector('h4').textContent;
-        const productData = {
-            name: productName,
-            image: product.querySelector('img').src,
-            price: product.querySelector('.price').textContent,
-            ...productDetails[productName]
-        };
-        
-        localStorage.setItem('selectedProduct', JSON.stringify(productData));
-        window.location.href = 'productDetails.html';
-    });
-});
-
-    
-    
-    
-    
-    
     

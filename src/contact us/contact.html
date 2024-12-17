@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaffCozz Perfumes</title>
+    <link rel="stylesheet" href="../../css/contact us/contact.css">
+</head>
+
+
+<body>
+
+
+
+    <!-----------------------NAVIGATION------------------------------>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../../homepage.html">
+                        <img src="../../assets/company's/SaffCozz_Company.png" width="125px">
+                    </a>
+                </div>
+                <nav>
+                    <ul id="menu-item">
+                        <li><a href="../../src/products page/products.html">PRODUK</a></li>
+                        <li><a href="../../src/about us/about.html">TENTANG KAMI</a></li>
+                        <li><a href="../../src/store locations/stores.html">LOKASI TOKO</a></li>
+                        <li><a href="../../src/contact us/contact.html" class="active">HUBUNGI KAMI</a></li>
+                    </ul>
+                </nav>
+                <img src="./assets/nav/nav_hamburger.svg" alt="" class="menu-icon" onclick="menuToggle()">
+            </div>
+        </div>
+    </div>
+
+
+    
+    <div class="container">
+        <h1>HUBUNGI KAMI</h1>
+    
+        <form id="contactForm" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label for="fullName">Nama Panjang *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Masukkan nama panjang anda">
+                <span class="error" id="nameError"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email">
+                <span class="error" id="emailError"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="phone">Nomor Telpon *</label>
+                <input type="tel" id="phone" name="phone" placeholder="Masukkan nomor telpon">
+                <span class="error" id="phoneError"></span>
+            </div>
+    
+            <div class="form-group">
+                <label for="message">Pesan/Deskripsi *</label>
+                <textarea id="message" name="message" rows="5" placeholder="Beri tahu kami bagaimana kami dapat membantu Anda"></textarea>
+                <span class="error" id="messageError"></span>
+            </div>
+    
+            <div class="form-group">
+                <label>Jenis Kelamin *</label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="male">
+                    <label for="male">Pria</label>
+                    <input type="radio" id="female" name="gender" value="female">
+                    <label for="female">Wanita</label>
+                </div>
+                <span class="error" id="genderError"></span>
+            </div>
+    
+            <div class="form-group">
+                <input type="checkbox" id="newsletter" name="newsletter">
+                <label for="newsletter">Berlangganan untuk menerima berita terbaru, penawaran eksklusif, dan rilis produk baru</label>
+            </div>
+    
+            <button type="submit">KIRIM</button>
+        </form>
+    </div>
+
+
+    <!---------------------------------------------FOOTER------------------------------------------->
+    <footer class="footer">
+        <div class="footer-container">
+            <img src="../../assets/company's/SaffCozz_Company.svg" alt="SaffCoZ Logo" class="footer-logo">
+            <p>&copy; 2024 SaffCoZ | All Rights Reserved</p>
+        </div>
+    </footer>
+
+
+    <script src="../../script/contact us/contact.js"></script>
+
+
+
+</body>
+</html>
