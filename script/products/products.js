@@ -32,10 +32,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-var menuItems = document.getElementById("menu-item");
-        menuItems.style.maxHeight = "0px";
-        function menuToggle()
-        {
+    var menuItems = document.getElementById("menu-item");
+    menuItems.style.maxHeight = "0px";
+    function menuToggle()
+    {
             if(menuItems.style.maxHeight == "0px")
             {
                 menuItems.style.maxHeight = "200px"
@@ -44,97 +44,97 @@ var menuItems = document.getElementById("menu-item");
             {
             menuItems.style.maxHeight = "0px"
             }
-        }
-
-
-        function startSlider() {
-        const slides = document.querySelectorAll('.banner-slide');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentSlide = 0;
-        
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
-        
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
-        
-        // Event listeners for buttons
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
-        
-        // Show first slide
-        showSlide(0);
-        
-        // Auto advance slides
-        const slideInterval = setInterval(nextSlide, 5000);
-        
-        // Pause auto-advance when hovering over slider
-        document.querySelector('.banner-slider').addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
     }
 
-    document.addEventListener('DOMContentLoaded', startSlider);
 
-    function initProductSlider() {
-    const productRow = document.querySelector('.product-slider .row');
-    const prevBtn = document.querySelector('.product-prev');
-    const nextBtn = document.querySelector('.product-next');
+    //     function startSlider() {
+    //     const slides = document.querySelectorAll('.banner-slide');
+    //     const prevBtn = document.querySelector('.prev-btn');
+    //     const nextBtn = document.querySelector('.next-btn');
+    //     let currentSlide = 0;
+        
+    //     function showSlide(index) {
+    //         slides.forEach(slide => slide.classList.remove('active'));
+    //         slides[index].classList.add('active');
+    //     }
+        
+    //     function nextSlide() {
+    //         currentSlide = (currentSlide + 1) % slides.length;
+    //         showSlide(currentSlide);
+    //     }
+        
+    //     function prevSlide() {
+    //         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    //         showSlide(currentSlide);
+    //     }
+        
+    //     // Event listeners for buttons
+    //     nextBtn.addEventListener('click', nextSlide);
+    //     prevBtn.addEventListener('click', prevSlide);
+        
+    //     // Show first slide
+    //     showSlide(0);
+        
+    //     // Auto advance slides
+    //     const slideInterval = setInterval(nextSlide, 5000);
+        
+    //     // Pause auto-advance when hovering over slider
+    //     document.querySelector('.banner-slider').addEventListener('mouseenter', () => {
+    //         clearInterval(slideInterval);
+    //     });
+    // }
+
+    // document.addEventListener('DOMContentLoaded', startSlider);
+
+//     function initProductSlider() {
+//     const productRow = document.querySelector('.product-slider .row');
+//     const prevBtn = document.querySelector('.product-prev');
+//     const nextBtn = document.querySelector('.product-next');
     
-    function getProductsPerPage() {
-    if (window.innerWidth <= 767) return 1;
-    if (window.innerWidth <= 1000) return 2;
-    return 3;
-    }
+//     function getProductsPerPage() {
+//     if (window.innerWidth <= 767) return 1;
+//     if (window.innerWidth <= 1000) return 2;
+//     return 3;
+//     }
 
-    let productsPerPage = getProductsPerPage();
-    let currentPage = 0;
+//     let productsPerPage = getProductsPerPage();
+//     let currentPage = 0;
 
-    function showProducts(page) {
-        const products = document.querySelectorAll('.col-3');
-        products.forEach((product, index) => {
-            if (index >= page * productsPerPage && index < (page + 1) * productsPerPage) {
-                product.style.display = 'flex';
-            } else {
-                product.style.display = 'none';
-            }
-        });
-    }
+//     function showProducts(page) {
+//         const products = document.querySelectorAll('.col-3');
+//         products.forEach((product, index) => {
+//             if (index >= page * productsPerPage && index < (page + 1) * productsPerPage) {
+//                 product.style.display = 'flex';
+//             } else {
+//                 product.style.display = 'none';
+//             }
+//         });
+//     }
 
-    prevBtn.addEventListener('click', () => {
-        if (currentPage > 0) {
-            currentPage--;
-            showProducts(currentPage);
-        }
-    });
+//     prevBtn.addEventListener('click', () => {
+//         if (currentPage > 0) {
+//             currentPage--;
+//             showProducts(currentPage);
+//         }
+//     });
 
-    nextBtn.addEventListener('click', () => {
-        const products = document.querySelectorAll('.col-3');
-        const maxPages = Math.ceil(products.length / productsPerPage) - 1;
-        if (currentPage < maxPages) {
-            currentPage++;
-            showProducts(currentPage);
-        }
-    });
+//     nextBtn.addEventListener('click', () => {
+//         const products = document.querySelectorAll('.col-3');
+//         const maxPages = Math.ceil(products.length / productsPerPage) - 1;
+//         if (currentPage < maxPages) {
+//             currentPage++;
+//             showProducts(currentPage);
+//         }
+//     });
 
-    window.addEventListener('resize', () => {
-        productsPerPage = getProductsPerPage();
-        currentPage = 0; // Reset to first page on resize
-        showProducts(currentPage);
-    });
+//     window.addEventListener('resize', () => {
+//         productsPerPage = getProductsPerPage();
+//         currentPage = 0; // Reset to first page on resize
+//         showProducts(currentPage);
+//     });
 
-    showProducts(0);
-}
+//     showProducts(0);
+// }
 
     document.addEventListener('DOMContentLoaded', initProductSlider);
     window.onscroll = function() {
@@ -331,59 +331,59 @@ var menuItems = document.getElementById("menu-item");
     // });
     
 
-    var menuItems = document.getElementById("menu-item");
-        menuItems.style.maxHeight = "0px";
-        function menuToggle()
-        {
-            if(menuItems.style.maxHeight == "0px")
-            {
-                menuItems.style.maxHeight = "200px"
-            }
-            else 
-            {
-            menuItems.style.maxHeight = "0px"
-            }
-        }
+    // var menuItems = document.getElementById("menu-item");
+    //     menuItems.style.maxHeight = "0px";
+    //     function menuToggle()
+    //     {
+    //         if(menuItems.style.maxHeight == "0px")
+    //         {
+    //             menuItems.style.maxHeight = "200px"
+    //         }
+    //         else 
+    //         {
+    //         menuItems.style.maxHeight = "0px"
+    //         }
+    //     }
 
 
-        function startSlider() {
-        const slides = document.querySelectorAll('.banner-slide');
-        const prevBtn = document.querySelector('.prev-btn');
-        const nextBtn = document.querySelector('.next-btn');
-        let currentSlide = 0;
+    //     function startSlider() {
+    //     const slides = document.querySelectorAll('.banner-slide');
+    //     const prevBtn = document.querySelector('.prev-btn');
+    //     const nextBtn = document.querySelector('.next-btn');
+    //     let currentSlide = 0;
         
-        function showSlide(index) {
-            slides.forEach(slide => slide.classList.remove('active'));
-            slides[index].classList.add('active');
-        }
+    //     function showSlide(index) {
+    //         slides.forEach(slide => slide.classList.remove('active'));
+    //         slides[index].classList.add('active');
+    //     }
         
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }
+    //     function nextSlide() {
+    //         currentSlide = (currentSlide + 1) % slides.length;
+    //         showSlide(currentSlide);
+    //     }
         
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        }
+    //     function prevSlide() {
+    //         currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    //         showSlide(currentSlide);
+    //     }
         
-        // Event listeners for buttons
-        nextBtn.addEventListener('click', nextSlide);
-        prevBtn.addEventListener('click', prevSlide);
+    //     // Event listeners for buttons
+    //     nextBtn.addEventListener('click', nextSlide);
+    //     prevBtn.addEventListener('click', prevSlide);
         
-        // Show first slide
-        showSlide(0);
+    //     // Show first slide
+    //     showSlide(0);
         
-        // Auto advance slides
-        const slideInterval = setInterval(nextSlide, 5000);
+    //     // Auto advance slides
+    //     const slideInterval = setInterval(nextSlide, 5000);
         
-        // Pause auto-advance when hovering over slider
-        document.querySelector('.banner-slider').addEventListener('mouseenter', () => {
-            clearInterval(slideInterval);
-        });
-    }
+    //     // Pause auto-advance when hovering over slider
+    //     document.querySelector('.banner-slider').addEventListener('mouseenter', () => {
+    //         clearInterval(slideInterval);
+    //     });
+    // }
 
-    document.addEventListener('DOMContentLoaded', startSlider);
+    // document.addEventListener('DOMContentLoaded', startSlider);
 
     function initProductSlider() {
     const productRow = document.querySelector('.product-slider .row');
@@ -514,54 +514,6 @@ var menuItems = document.getElementById("menu-item");
         // Store the original order of products
         const originalOrder = [...allProducts];
     
-        // function sortAllProducts(sortValue) {
-        //     // Create a new array with all products
-        //     let sortedProducts = [...allProducts];
-            
-        //     switch(sortValue) {
-        //         case 'name-asc':
-        //             sortedProducts.sort((a, b) => {
-        //                 return a.querySelector('h4').textContent.localeCompare(b.querySelector('h4').textContent);
-        //             });
-        //             break;
-        //         case 'name-desc':
-        //             sortedProducts.sort((a, b) => {
-        //                 return b.querySelector('h4').textContent.localeCompare(a.querySelector('h4').textContent);
-        //             });
-        //             break;
-        //         case 'price-low':
-        //             sortedProducts.sort((a, b) => {
-        //                 const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-        //                 const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-        //                 return priceA - priceB;
-        //             });
-        //             break;
-        //         case 'price-high':
-        //             sortedProducts.sort((a, b) => {
-        //                 const priceA = parseInt(a.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-        //                 const priceB = parseInt(b.querySelector('small').textContent.split('Rp')[1].replace(/,/g, ''));
-        //                 return priceB - priceA;
-        //             });
-        //             break;
-        //         case 'type':
-        //             sortedProducts.sort((a, b) => {
-        //                 return a.querySelector('h5').textContent.localeCompare(b.querySelector('h5').textContent);
-        //             });
-        //             break;
-        //         case 'default':
-        //             sortedProducts = [...originalOrder];
-        //             break;
-        //     }
-    
-        //     // Update the main products array with sorted order
-        //     allProducts = sortedProducts;
-            
-        //     // Reset to first page and display
-        //     currentPage = 1;
-        //     updatePageDisplay();
-        //     showProducts();
-        // }
-    
         function showProducts() {
             const start = (currentPage - 1) * productsPerPage;
             const end = start + productsPerPage;
@@ -678,7 +630,7 @@ var menuItems = document.getElementById("menu-item");
     });
 
     // Add this after your sorting and pagination code
-function initializeProductClicks() {
+    function initializeProductClicks() {
     document.querySelectorAll('.col-3').forEach(product => {
         product.addEventListener('click', () => {
             const productName = product.querySelector('h4').textContent.trim();
@@ -695,23 +647,23 @@ function initializeProductClicks() {
 }
 
 // Update the showProducts function to reinitialize clicks after displaying products
-function showProducts() {
-    const start = (currentPage - 1) * productsPerPage;
-    const end = start + productsPerPage;
+// function showProducts() {
+//     const start = (currentPage - 1) * productsPerPage;
+//     const end = start + productsPerPage;
     
-    const container = document.querySelector('.row');
-    container.innerHTML = '';
+//     const container = document.querySelector('.row');
+//     container.innerHTML = '';
     
-    allProducts.slice(start, end).forEach(product => {
-        container.appendChild(product);
-    });
+//     allProducts.slice(start, end).forEach(product => {
+//         container.appendChild(product);
+//     });
 
-    // Add this line to reinitialize clicks after showing products
-    initializeProductClicks();
-}
+//     // Add this line to reinitialize clicks after showing products
+//     initializeProductClicks();
+// }
 
 // Initialize clicks on page load
-initializeProductClicks();
+    initializeProductClicks();
     
 
     // document.querySelectorAll('.col-3').forEach(product => {
@@ -732,22 +684,6 @@ initializeProductClicks();
     //         window.location.href = 'productDetails.html';
     //     });
     // });
-
-
-    // First, in products.js, add click event to products
-// document.querySelectorAll('.col-3').forEach(product => {
-//     product.addEventListener('click', () => {
-//         const productName = product.querySelector('h4').textContent;
-//         const productData = {
-//             name: productName,
-//             image: product.querySelector('img').src,
-//             ...productDetails[productName] // This spreads the longDesc and details
-//         };
-        
-//         localStorage.setItem('selectedProduct', JSON.stringify(productData));
-//         window.location.href = 'product-detail.html';
-//     });
-// });
 
 
 

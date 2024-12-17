@@ -227,7 +227,7 @@ nav ul li {
     overflow: visible;
 }
 
-.banner-slide {
+.banner-slide{
     display: none;
     width: 100%;
     animation: fade 1.5s ease;
@@ -253,19 +253,7 @@ nav ul li {
 }
 
 /* Slider Navigation */
-/* .slider-nav {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
+
 .slider-nav {
     position: absolute;
     top: 50%;
@@ -281,17 +269,13 @@ nav ul li {
     z-index: 100;
 }
 
-/* .prev-btn {
-    left: -60px;
-} */
+
 
 .prev-btn {
     left: -30px /* Changed from -60px */
 }
 
-/* .next-btn {
-    right: -60px;
-} */
+
 .next-btn {
     right: -30px; /* Changed from -60px */
 }
@@ -302,9 +286,9 @@ nav ul li {
     transition: opacity 0.3s ease;
 }
 
-.slider-nav:hover img {
+/* .slider-nav:hover img {
     opacity: 0.7;
-}
+} */
 
 
 .product-slider {
@@ -312,17 +296,9 @@ nav ul li {
     overflow: visible;
 }
 
-/* .product-prev {
-    left: -60px;
-} */
-
 .product-prev {
     left: -20px; /* Changed from -60px */
 }
-
-/* .product-next {
-    right: -60px;
-} */
 
 .product-next {
     right: -20px; /* Changed from -60px */
@@ -352,11 +328,10 @@ nav ul li {
     margin: 0;
 }
 
-/* Animations
 @keyframes fade {
-    from {opacity: 0.8}
+    from {opacity: 0.5}
     to {opacity: 1}
-} */
+}
 
 /* Media Queries */
 @media only screen and (max-width: 767px) {
@@ -390,10 +365,10 @@ nav ul li {
         flex-direction: column-reverse;
     }
 
-    .col-2 {
-        text-align: center;
-        padding: 20px 0;
-    }
+    /* .col-2 {
+        text-align: center; 
+        padding: 0px 0;
+    } */
 
     .col-2 img {
         padding: 1px 0;
@@ -425,19 +400,19 @@ nav ul li {
         display: none;
     }
 
-    .product-slider .row {
+    /* .product-slider .row {
         margin: 0 30px;
-    }
+    } */
 
 
-    .row {
+    /* .row {
         text-align: center;
-    }
+    } */
 
-    .col-2
+    /* .col-2
     {
         flex-basis: 100%;
-    }
+    } */
 
     .col-3 
     {
@@ -467,50 +442,4 @@ nav ul li {
     
     
 }
-
-/* @media only screen and (max-width: 400px) {
-    .row {
-        text-align: center;
-    }
-
-    .col-2
-    {
-        flex-basis: 100%;
-    }
-
-    .col-3 
-    {
-        margin-bottom: 20px;
-        flex-basis: 100%
-    }
-
-    .slider-nav 
-    {
-        width: 24px;
-        height: 24px;
-    }
-
-    .prev-btn 
-    {
-        left: 5px;
-    }
-
-    .next-btn 
-    {
-        right: 5px;
-    }
-
-    .product-prev 
-    {
-        left: 0;
-    }
-
-    .product-next 
-    {
-        right: 0;
-    }
-    
-} */
-
-
 

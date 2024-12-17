@@ -7,21 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
         menuItems.style.maxHeight = menuItems.style.maxHeight === "0px" ? "200px" : "0px";
     }
 
-    // Product Detail Population
-    // const productData = JSON.parse(localStorage.getItem('selectedProduct'));
-    
-    // // Basic info population
-    // document.getElementById('product-img').src = productData.image;
-    // document.getElementById('product-name').textContent = productData.name;
-    // document.getElementById('product-description').textContent = productData.longDesc;
-    
-    // // Price display logic
-    // if (productData.originalPrice && productData.discountPrice) {
-    //     document.getElementById('original-price').textContent = productData.originalPrice;
-    //     document.getElementById('product-price').textContent = productData.discountPrice;
-    // } else {
-    //     document.getElementById('product-price').textContent = productData.price;
-    // }
     const productData = JSON.parse(localStorage.getItem('selectedProduct'));
     
     // Basic info population
