@@ -117,10 +117,10 @@ var menuItems = document.getElementById("menu-item");
         // 1. Name Validation (minimum 3 characters, no numbers)
         const name = document.getElementById('fullName').value;
         if (name.length < 3) {
-            document.getElementById('nameError').textContent = 'Name must be at least 3 characters long';
+            document.getElementById('nameError').textContent = 'Nama harus terdiri dari minimal 3 karakter';
             isValid = false;
         } else if (containsNumbers(name)) {
-            document.getElementById('nameError').textContent = 'Name cannot contain numbers';
+            document.getElementById('nameError').textContent = 'Nama tidak boleh mengandung angka';
             isValid = false;
         } else {
             document.getElementById('nameError').textContent = '';
@@ -129,7 +129,7 @@ var menuItems = document.getElementById("menu-item");
         // 2. Email Validation (must contain @ and .)
         const email = document.getElementById('email').value;
         if (!email.includes('@') || !email.includes('.')) {
-            document.getElementById('emailError').textContent = 'Please enter a valid email address';
+            document.getElementById('emailError').textContent = 'Masukkan alamat email yang valid';
             isValid = false;
         } else {
             document.getElementById('emailError').textContent = '';
@@ -138,7 +138,7 @@ var menuItems = document.getElementById("menu-item");
         // 3. Phone Validation (minimum 10 digits, numbers only)
         const phone = document.getElementById('phone').value;
         if (phone.length < 10 || !containsOnlyNumbers(phone)) {
-            document.getElementById('phoneError').textContent = 'Please enter a valid phone number (minimum 10 digits)';
+            document.getElementById('phoneError').textContent = 'Masukkan nomor telepon yang valid (minimal 10 digit)';
             isValid = false;
         } else {
             document.getElementById('phoneError').textContent = '';
@@ -147,7 +147,7 @@ var menuItems = document.getElementById("menu-item");
         // 4. Gender Validation (must select one)
         const gender = document.querySelector('input[name="gender"]:checked');
         if (!gender) {
-            document.getElementById('genderError').textContent = 'Please select your gender';
+            document.getElementById('genderError').textContent = 'Pilih jenis kelamin Anda';
             isValid = false;
         } else {
             document.getElementById('genderError').textContent = '';

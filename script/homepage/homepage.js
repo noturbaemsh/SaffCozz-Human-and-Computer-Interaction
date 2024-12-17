@@ -114,17 +114,16 @@ var menuItems = document.getElementById("menu-item");
         });
     }
 
-    document.addEventListener('DOMContentLoaded', () => {
-        startSlider();
-        // Remove this line since we're using initAllProductSliders
-        // document.addEventListener('DOMContentLoaded', initProductSlider);
-        initAllProductSliders();
-    });
+    // document.addEventListener('DOMContentLoaded', () => {
+    //     startSlider();
+    //     // Remove this line since we're using initAllProductSliders
+    //     // document.addEventListener('DOMContentLoaded', initProductSlider);
+    //     initAllProductSliders();
+    // });
 
 
 
     const productData = {
-        
     
     'MYSTIC AURA': {
         originalPrice: "Rp520.000",
@@ -195,38 +194,6 @@ var menuItems = document.getElementById("menu-item");
     }   
     };
     
-    // function initializeProductClicks() {
-    //     document.querySelectorAll('.col-3').forEach(product => {
-    //         product.addEventListener('click', () => {
-    //             const name = product.querySelector('h4').textContent;
-    //             const productInfo = {
-    //                 name: name,
-    //                 image: product.querySelector('img').src,
-    //                 ...productData[name]
-    //             };
-                
-    //             localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
-    //             window.location.href = './src/products page/productDetails.html';
-    //         });
-    //     });
-    // }
-    // function initializeProductClicks() {
-    //     document.querySelectorAll('.col-3').forEach(product => {
-    //         product.addEventListener('click', () => {
-    //             const name = product.querySelector('h4').textContent;
-    //             const price = product.querySelector('small').textContent; // Changed from .price to small tag
-    //             const productInfo = {
-    //                 name: name,
-    //                 image: product.querySelector('img').src,
-    //                 price: price,
-    //                 ...productData[name]
-    //             };
-                
-    //             localStorage.setItem('selectedProduct', JSON.stringify(productInfo));
-    //             window.location.href = 'src/products page/productDetails.html'; // Removed the dot before src
-    //         });
-    //     });
-    // }
 
     function initializeProductClicks() {
         document.querySelectorAll('.col-3').forEach(product => {
