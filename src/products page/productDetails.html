@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | SaffCozz</title>
+    <link rel="stylesheet" href="../../css/products page/productDetails.css">
+</head>
+
+<body>
+    <!-----------------------NAVIGATION------------------------------>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="../../homepage.html">
+                        <img src="../../assets/company's/SaffCozz_Company.png" width="125px">
+                    </a>
+                </div>
+                <nav>
+                    <ul id="menu-item">
+                        <li><a href="../../src/products page/products.html" class="active">PRODUK</a></li>
+                        <li><a href="../../src/about us/about.html">TENTANG KAMI</a></li>
+                        <li><a href="../../src/store locations/stores.html">LOKASI TOKO</a></li>
+                        <li><a href="../../src/contact us/contact.html">HUBUNGI KAMI</a></li>
+                    </ul>
+                </nav>
+                <img src="../../assets/nav/nav_hamburger.svg" alt="" class="menu-icon" onclick="menuToggle()">
+            </div>
+        </div>
+    </div>
+
+    <div class="product-detail-container">
+        <button class="back-button" onclick="history.back()">← Back</button>
+        <div class="product-image">
+            <img id="product-img" src="" alt="">
+        </div>
+        <div class="product-info">
+            <h2 id="product-name"></h2>
+            <!-- <p id="product-price" class="price"></p> -->
+            <div class="price-row">
+                <span id="original-price" class="original-price"></span>
+                <span id="product-price" class="price"></span>
+            </div>
+            <button class="buy-button">Beli Sekarang</button>
+            
+            <div class="info-section">
+                <div class="section-header">
+                    <h3>Deskripsi</h3>
+                    <span class="toggle-btn">-</span>
+                </div>
+                <p id="product-description" class="description"></p>
+            </div>
+    
+            <div class="info-section">
+                <div class="section-header">
+                    <h3>Detail produk</h3>
+                    <span class="toggle-btn">-</span>
+                </div>
+                <div class="details-content">
+                    <p><strong>Scent:</strong> <span id="scent-list"></span></p>
+                    <p><strong>Notes:</strong> <span id="notes-list"></span></p>
+                    <p><strong>Size:</strong> <span id="size-list"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <!---------------------------------------------FOOTER------------------------------------------->
+    <footer class="footer">
+        <div class="footer-container">
+            <img src="../../assets/company's/SaffCozz_Company.svg" alt="SaffCoZ Logo" class="footer-logo">
+            <p>&copy; 2024 SaffCoZ | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script src="../../script/products/productDetails.js"></script>
+</body>
+</html>

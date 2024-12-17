@@ -20,15 +20,17 @@
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <img src="./assets/company's/SaffCozz_Company.png" width="125px">
+                    <a href="./homepage.html">
+                        <img src="./assets/company's/SaffCozz_Company.png" width="125px">
+                    </a>
+                    
                 </div>
                 <nav>
                     <ul id="menu-item">
-                        <li><a href="">PRODUK</a></li>
-                        <li><a href="">TENTANG KAMI</a></li>
-                        <li><a href="">LOKASI TOKO</a></li>
-                        <li><a href="">HUBUNGI KAMI</a></li>
-
+                        <li><a href="./src/products page/products.html">PRODUK</a></li>
+                        <li><a href="./src/about us/about.html">TENTANG KAMI</a></li>
+                        <li><a href="./src/store locations/stores.html">LOKASI TOKO</a></li>
+                        <li><a href="./src/contact us/contact.html">HUBUNGI KAMI</a></li>
                     </ul>
                 </nav>
                 <img src="./assets/nav/nav_hamburger.svg" alt="" class="menu-icon" onclick="menuToggle()">
@@ -45,7 +47,7 @@
                 <div class="col-2">
                     <h1>TEMUKAN MAHAKARYA <br>TERBARU DARI KAMI</h1>    
                     <p>Jelajahi kreasi terbaru SaffCoz, yang dibuat dengan bahan baku yang sangat indah untuk menghasilkan aroma mewah yang tak terlupakan.</p>
-                    <a href="" class="btn">JELAJAHI SEKARANG</a>
+                    <a href="#new-products" class="btn">JELAJAHI SEKARANG</a>
                 </div>
                 <div class="col-2">
                     <img src="./assets/homepage/banner/banner-1.jpeg" alt="new product">
@@ -57,7 +59,7 @@
                 <div class="col-2">
                     <h1>DISKON SPESIAL <br>HINGGA 30%</h1>    
                     <p>Dapatkan koleksi parfum mewah SaffCoz dengan penawaran khusus untuk waktu terbatas.</p>
-                    <a href="" class="btn">LIHAT PENAWARAN</a>
+                    <a href="#discounted" class="btn">LIHAT PENAWARAN</a>
                 </div>
                 <div class="col-2">
                     <img src="./assets/homepage/banner/banner-2.jpg" alt="discount">
@@ -65,8 +67,12 @@
             </div>
     
             <!-- Navigation buttons -->
-            <button class="slider-nav prev-btn">&lt;</button>
-            <button class="slider-nav next-btn">&gt;</button>
+            <div class="slider-nav prev-btn">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
         </div>
     </section>
 
@@ -78,10 +84,10 @@
             <div class="row">
                 <div class="col-3">
                     <img src="./assets/homepage/best seller/HCI_SaffCoz_BS 1.svg" alt="">
-                    <h5>EAU DE PARFUM</h5>
-                    <h4>Midnight Saffron</h4>
-                    <p>Sebuah mahakarya kemewahan yang menampilkan benang kunyit langka yang ditenun dengan anggrek vanila yang lembut dan musk kuning yang kaya.</p>
-                    <small>50ml | 100ml</small>
+                    <h5>EAU DE TOILETTE</h5>
+                    <h4>AQUA SERENITY</h4>
+                    <p>Keharuman yang memancarkan kesegaran air dan ketenangan, menciptakan suasana yang damai dan memikat.</p>
+                    <small>50ml</small>
                     <p>
                         <small>
                             3,5jt+ telah terjual
@@ -92,10 +98,10 @@
                 
                 <div class="col-3">
                     <img src="./assets/homepage/best seller/HCI_SaffCoz_BS 2.svg" alt="">
-                    <h5>EXTRAIT DE PARFUM</h5>
-                    <h4>Royal Oud Legacy</h4>
-                    <p>Perpaduan indah dari gaharu yang berharga, mawar Bulgaria, dan rempah-rempah eksotis yang menciptakan aroma khas yang tak terlupakan.</p>
-                    <small>30ml | 50ml</small>
+                    <h5>EAU DE TOILETTE</h5>
+                    <h4>CITRUS BLISS</h4>
+                    <p>Citrus Bliss adalah parfum dengan aroma citrus yang ceria dan energik, memberikan sentuhan keharuman yang menyegarkan dan membangkitkan semangat.</p>
+                    <small>50ml</small>
                     <p>
                         <small>
                             2,8jt+ telah terjual
@@ -107,9 +113,9 @@
                 <div class="col-3">
                     <img src="./assets/homepage/best seller/HCI_SaffCoz_BS 3.svg" alt="">
                     <h5>EAU DE PARFUM</h5>
-                    <h4>Golden Elixir</h4>
-                    <p>Perpaduan harmonis antara amber yang hangat, kayu yang berharga, dan melati yang manis, sempurna untuk momen-momen istimewa.</p>
-                    <small>50ml | 100ml</small>
+                    <h4>WARM & COZY</h4>
+                    <p>Parfum dengan perpaduan aroma vanilla yang manis dan cinnamon yang hangat, menciptakan keharuman yang memikat dan penuh kehangatan.</p>
+                    <small>40ml</small>
                     <p>
                         <small>
                             3,2jt+ telah terjual
@@ -119,10 +125,10 @@
                 </div>
                 <div class="col-3">
                     <img src="./assets/homepage/best seller/HCI_SaffCoz_BS 4.svg" alt="">
-                    <h5>EAU DE PARFUM</h5>
-                    <h4>Velvet Rose</h4>
-                    <p>Perpaduan mewah dari kelopak mawar Damask dengan sentuhan vanila hitam dan musk putih yang menciptakan aroma sensual yang memukau.</p>
-                    <small>50ml | 100ml</small>
+                    <h5>EAU DE TOILETTE</h5>
+                    <h4>MYSTIC AURA</h4>
+                    <p>Parfum dengan aroma yang memikat dan penuh misteri, menciptakan aura yang mempesona dan tak terlupakan.</p>
+                    <small>80ml</small>
                     <p>
                         <small>
                             2,9jt+ telah terjual
@@ -131,8 +137,76 @@
                     <a href="#" class="product-btn">BELI SEKARANG</a>
                 </div>
             </div> 
-            <button class="slider-nav prev-btn product-prev">&lt;</button>
-            <button class="slider-nav next-btn product-next">&gt;</button>
+            <!-- <button class="slider-nav prev-btn product-prev">&lt;</button>
+            <button class="slider-nav next-btn product-next">&gt;</button> -->
+
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
+        </div>
+    </div>
+
+    <div class="small-container" id="new-products">
+        <h2 class="title">PRODUK TERBARU</h2>
+        <div class="product-slider">
+            <div class="row">
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 14 - Abu Elegan.svg" alt="">
+                    <h5>EAU DE TOILETTER</h5>
+                    <h4>ESSENCE OF SIMPLE</h4>
+                    <p>Parfum ini menawarkan keharuman yang bersih dan menenangkan, sempurna untuk mereka yang menghargai kesederhanaan.</p>
+                    <small>80ml</small>
+                    <p><small>Baru Diluncurkan</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                <!-- Add 3 more products with similar structure -->
+            </div>
+            
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Discounted Products Section -->
+    <div class="small-container" id="discounted">
+        <h2 class="title">SEDANG DISKON</h2>
+        <div class="product-slider">
+            <div class="row">
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 10 - Emas nan Elegan.svg" alt="">
+                    <h5>EAU DE PARFUM</h5>
+                    <h4>GOLD EXCLUSIVE</h4>
+                    <p>Kombinasi sempurna dari bunga melati yang lembut, sentuhan vanila yang manis, dan kehangatan kayu cendana menciptakan kesan yang tak terlupakan.</p>
+                    <small>75ml</small>
+                    <p><small>Diskon 30%</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                <div class="col-3">
+                    <img src="./assets/products page/products/HCI_SaffCozz-Parfum 9 - Aroma Buah-buahan Manis dan Eksotis.svg" alt="">
+                    <h5>EXTRAIT DE PARFUM</h5>
+                    <h4>FRUITY EXORCISM</h4>
+                    <p>Kombinasi unik dari berbagai buah eksotis ini memberikan sentuhan yang menyegarkan dan memikat, sempurna untuk mereka yang ingin tampil beda dan berani.</p>
+                    <small>40ml</small>
+                    <p><small>Diskon 30%</small></p>
+                    <a href="#" class="product-btn">BELI SEKARANG</a>
+                </div>
+                
+                
+                <!-- Add 3 more products with similar structure -->
+            </div>
+            <div class="slider-nav prev-btn product-prev">
+                <img src="./assets/homepage/nav/prev.svg" alt="Previous">
+            </div>
+            <div class="slider-nav next-btn product-next">
+                <img src="./assets/homepage/nav/next.svg" alt="Next">
+            </div>
         </div>
     </div>
 
